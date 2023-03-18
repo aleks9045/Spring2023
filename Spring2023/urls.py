@@ -1,8 +1,9 @@
 from django.contrib import admin
-from django.urls import path
-from main_app import views
+from django.urls import path, include, re_path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', views.home_page),
+    path('account/', include('account.urls')),
+    path('social-auth/', include('social_django.urls', namespace='social')),
+    path('geo/', include('geo.urls'))
 ]
